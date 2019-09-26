@@ -1,0 +1,86 @@
+//
+//  NewTaskView.swift
+//  TodoDribble
+//
+//  Created by Renan Benatti Dias on 22/09/19.
+//  Copyright © 2019 Renan Benatti Dias. All rights reserved.
+//
+
+import SwiftUI
+
+struct NewTaskView: View {
+    
+    let todoList: TodoList
+    
+    @Environment(\.presentationMode) var isPresented
+    @ObservedObject var task = Task(id: UUID(), text: "", done: false, date: Date())
+    
+    var body: some View {
+        NavigationView {
+            VStack(alignment: .leading) {
+                Group {
+                    Text("What tasks are you planning to perform?")
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+                    
+                    TextField("Type here", text: $task.text)
+                        .padding(.vertical)
+                }
+                .padding()
+                
+                Group {
+                    NewTaskDetailsType(image: todoList.icon, title: todoList.title)
+                    NewTaskDetailsType(image: Image(systemName: "calendar"), title: "Today")
+                }
+                .padding(.leading)
+                .padding(.bottom)
+                
+                Spacer()
+            }
+            .padding(.leading)
+            .navigationBarTitle("New Task", displayMode: .inline)
+            .navigationBarItems(trailing:
+                Button(action: self.save) {
+                    Text("Save")
+                }
+                .foregroundColor(self.todoList.color)
+            )
+        }
+    }
+    
+    private func save() {
+        if !task.text.isEmpty {
+            todoList.tasks.append(task)
+        }
+        isPresented.wrappedValue.dismiss()
+    }
+}
+
+struct NewTaskDetailsType: View {
+    
+    let image: Image
+    let title: String
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            HStack {
+                Group {
+                    image
+                    Text(title)
+                        .font(.subheadline)
+                }
+                .foregroundColor(.gray)
+            }
+            Rectangle()
+                .frame(height: 0.4)
+                .foregroundColor(.gray)
+                .padding(.leading, 25)
+        }
+    }
+}
+
+struct NewTaskView_Previews: PreviewProvider {
+    static var previews: some View {
+        NewTaskView(todoList: TodoList.mock[0])
+    }
+}
