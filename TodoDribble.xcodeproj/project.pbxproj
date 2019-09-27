@@ -30,6 +30,11 @@
 		84D79A152335E1B90075BC29 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D79A142335E1B90075BC29 /* MainView.swift */; };
 		84D9D317233836B0006409DB /* FloatingButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9D316233836B0006409DB /* FloatingButtonView.swift */; };
 		84D9D31A23384168006409DB /* NewTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9D31923384168006409DB /* NewTaskView.swift */; };
+		84F41A4F233C688A0027514C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F41A4E233C688A0027514C /* User.swift */; };
+		84F41A54233C733A0027514C /* EditUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F41A53233C733A0027514C /* EditUserView.swift */; };
+		84F41A56233C73710027514C /* UserAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F41A55233C73710027514C /* UserAvatarView.swift */; };
+		84F41A58233D3EB70027514C /* SelectUserAvaterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F41A57233D3EB70027514C /* SelectUserAvaterView.swift */; };
+		84F41A5B233DA7BC0027514C /* MainCardProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F41A5A233DA7BC0027514C /* MainCardProgressView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +63,11 @@
 		84D79A142335E1B90075BC29 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		84D9D316233836B0006409DB /* FloatingButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButtonView.swift; sourceTree = "<group>"; };
 		84D9D31923384168006409DB /* NewTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskView.swift; sourceTree = "<group>"; };
+		84F41A4E233C688A0027514C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		84F41A53233C733A0027514C /* EditUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserView.swift; sourceTree = "<group>"; };
+		84F41A55233C73710027514C /* UserAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAvatarView.swift; sourceTree = "<group>"; };
+		84F41A57233D3EB70027514C /* SelectUserAvaterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectUserAvaterView.swift; sourceTree = "<group>"; };
+		84F41A5A233DA7BC0027514C /* MainCardProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCardProgressView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +88,7 @@
 				842D6BCB233698F800621AC8 /* CustomNavigationBarView.swift */,
 				84D9D316233836B0006409DB /* FloatingButtonView.swift */,
 				84517B32233C45700004623F /* CloseButtonView.swift */,
+				84F41A55233C73710027514C /* UserAvatarView.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -87,6 +98,7 @@
 			children = (
 				84D79A142335E1B90075BC29 /* MainView.swift */,
 				845EC99F2334670300333176 /* MainCardView.swift */,
+				84F41A5A233DA7BC0027514C /* MainCardProgressView.swift */,
 				84D79A102335DE6E0075BC29 /* MainHeaderView.swift */,
 			);
 			path = Main;
@@ -95,10 +107,10 @@
 		842D6BCE23369F7F00621AC8 /* Details */ = {
 			isa = PBXGroup;
 			children = (
+				842D6BD62336BCF400621AC8 /* TodoDetailsView.swift */,
 				84D79A0E2335D9530075BC29 /* TaskListCellView.swift */,
 				842D6BCF2336A03500621AC8 /* DetailsHeaderView.swift */,
 				842D6BD42336A90500621AC8 /* TaskListView.swift */,
-				842D6BD62336BCF400621AC8 /* TodoDetailsView.swift */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -114,10 +126,11 @@
 		844EBE972335C5D400A4F7F0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				84D9D318233840D0006409DB /* NewTask */,
+				84F41A52233C73280027514C /* EditUser */,
 				842D6BD12336A23E00621AC8 /* Modifiers */,
 				842D6BCD23369F4300621AC8 /* Main */,
 				842D6BCE23369F7F00621AC8 /* Details */,
+				84D9D318233840D0006409DB /* NewTask */,
 				842D6BC8233698B800621AC8 /* Shared */,
 			);
 			path = Views;
@@ -126,6 +139,8 @@
 		844EBE9C2335D4FE00A4F7F0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				84517B2E233C1AB20004623F /* App.swift */,
+				84F41A4E233C688A0027514C /* User.swift */,
 				844EBE9D2335D50A00A4F7F0 /* TodoList.swift */,
 				84D79A0C2335D8E10075BC29 /* Task.swift */,
 			);
@@ -154,7 +169,6 @@
 				844EBE9C2335D4FE00A4F7F0 /* Model */,
 				844EBE972335C5D400A4F7F0 /* Views */,
 				84D79A122335E1AA0075BC29 /* Colors.swift */,
-				84517B2E233C1AB20004623F /* App.swift */,
 				845EC988233465A700333176 /* AppDelegate.swift */,
 				845EC98A233465A700333176 /* SceneDelegate.swift */,
 				845EC991233465AB00333176 /* Assets.xcassets */,
@@ -180,6 +194,15 @@
 				84D9D31923384168006409DB /* NewTaskView.swift */,
 			);
 			path = NewTask;
+			sourceTree = "<group>";
+		};
+		84F41A52233C73280027514C /* EditUser */ = {
+			isa = PBXGroup;
+			children = (
+				84F41A53233C733A0027514C /* EditUserView.swift */,
+				84F41A57233D3EB70027514C /* SelectUserAvaterView.swift */,
+			);
+			path = EditUser;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,19 +280,24 @@
 				84D9D31A23384168006409DB /* NewTaskView.swift in Sources */,
 				84D79A112335DE6E0075BC29 /* MainHeaderView.swift in Sources */,
 				84D79A152335E1B90075BC29 /* MainView.swift in Sources */,
+				84F41A56233C73710027514C /* UserAvatarView.swift in Sources */,
 				842D6BCC233698F800621AC8 /* CustomNavigationBarView.swift in Sources */,
 				84D79A132335E1AA0075BC29 /* Colors.swift in Sources */,
 				842D6BD32336A25F00621AC8 /* TodoIconModifier.swift in Sources */,
 				842D6BD02336A03500621AC8 /* DetailsHeaderView.swift in Sources */,
 				84517B33233C45700004623F /* CloseButtonView.swift in Sources */,
+				84F41A54233C733A0027514C /* EditUserView.swift in Sources */,
 				84D79A0D2335D8E10075BC29 /* Task.swift in Sources */,
 				842D6BD52336A90500621AC8 /* TaskListView.swift in Sources */,
 				845EC989233465A700333176 /* AppDelegate.swift in Sources */,
 				84D79A0F2335D9530075BC29 /* TaskListCellView.swift in Sources */,
+				84F41A5B233DA7BC0027514C /* MainCardProgressView.swift in Sources */,
 				844EBE9E2335D50A00A4F7F0 /* TodoList.swift in Sources */,
 				84517B2F233C1AB20004623F /* App.swift in Sources */,
 				844EBE9B2335C62400A4F7F0 /* ProgressBarView.swift in Sources */,
+				84F41A58233D3EB70027514C /* SelectUserAvaterView.swift in Sources */,
 				845EC98B233465A700333176 /* SceneDelegate.swift in Sources */,
+				84F41A4F233C688A0027514C /* User.swift in Sources */,
 				845EC98E233465A700333176 /* TodoDribble.xcdatamodeld in Sources */,
 				842D6BD72336BCF400621AC8 /* TodoDetailsView.swift in Sources */,
 				845EC9A02334670300333176 /* MainCardView.swift in Sources */,

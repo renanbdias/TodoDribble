@@ -1,5 +1,5 @@
 //
-//  App.swift
+//  User.swift
 //  TodoDribble
 //
 //  Created by Renan Benatti Dias on 25/09/19.
@@ -23,10 +23,5 @@ final class User: ObservableObject {
 
 extension User {
     
-    static let mock = User(name: "Renan", avatarName: "avatar", todoLists: TodoList.mock)
-}
-
-final class App: ObservableObject {
-    
-    @Published var user: User = User.mock
+    static let mock = User(name: "Renan", avatarName: "avatar0", todoLists: TodoList.mock)
 }

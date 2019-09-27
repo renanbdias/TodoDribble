@@ -11,10 +11,9 @@ import SwiftUI
 struct TodoDetailsView: View {
     
     @Environment(\.presentationMode) var isPresented
+    @State var newTaskIsPresented = false
     
     @ObservedObject var todoList: TodoList
-    
-    @State var newTaskIsPresented = false
     
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
@@ -22,7 +21,12 @@ struct TodoDetailsView: View {
             ScrollView {
                 Group {
                     DetailsHeaderView(todoList: todoList)
-                    TaskListView(taskList: $todoList.tasks)
+                    if todoList.tasks.isEmpty {
+                        Text("You are all up to date! 🎉")
+                            .font(.headline)
+                    } else {
+                        TaskListView(taskList: $todoList.tasks)
+                    }
                 }
                 .padding()
             }

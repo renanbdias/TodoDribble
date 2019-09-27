@@ -10,28 +10,36 @@ import SwiftUI
 
 struct MainHeaderView: View {
     
-    let userName: String
-    let numberOfTasks: Int
+    @ObservedObject var user: User
+    
+    // MARK: - Must have this because it won't trigger from a user instance. Weird...
+    @Binding var todoLists: [TodoList]
+    
+    private var generalMessage: String {
+        let remainingTasksCount = todoLists.map { $0.tasks.filter { !$0.done }.count }.reduce(0, +)
+        if remainingTasksCount <= 4 {
+            return "Looks like feel good."
+        } else if remainingTasksCount <= 10 {
+            return "Things are crowding up!"
+        } else {
+            return "Get your stuff together!"
+        }
+    }
     
     var body: some View {
         VStack(alignment: .leading) {
-            Image("avatar")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 42, height: 42)
-                .clipShape(Circle())
-                .shadow(radius: 5, x: 2, y: 4)
+            UserAvatarView(avatarName: user.avatarName)
                 .padding(.bottom, 8)
             
-            Text("Hello, \(userName).")
+            Text("Hello, \(user.name).")
                 .font(.largeTitle)
                 .foregroundColor(.white)
             
-            Text("Looks like feel good.")
+            Text(generalMessage)
                 .font(.subheadline)
                 .foregroundColor(Color.white.opacity(0.8))
             
-            Text("You have \(numberOfTasks) to do today.")
+            Text("You have \(todoLists.map { $0.tasks.filter { !$0.done }.count }.reduce(0, +)) tasks to do today.")
                 .font(.subheadline)
                 .foregroundColor(Color.white.opacity(0.8))
         }
@@ -40,7 +48,7 @@ struct MainHeaderView: View {
 
 struct MainHeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        MainHeaderView(userName: "Renan", numberOfTasks: 3)
+        MainHeaderView(user: User.mock, todoLists: .constant(TodoList.mock))
             .background(Color.flatOrange)
             .previewLayout(.fixed(width: 414, height: 248))
     }

@@ -10,7 +10,7 @@ import SwiftUI
 
 struct DetailsHeaderView: View {
     
-    var todoList: TodoList
+    @ObservedObject var todoList: TodoList
     
     @State var progress: CGFloat = 83
     

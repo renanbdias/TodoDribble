@@ -21,23 +21,30 @@ struct MainView: View {
     
     @EnvironmentObject var app: App
     
+    @State var editViewIsPresented = false
     @State var detailsIsPresented = false
+    
     @State var detailsIndex: Int = 0
     
-    var homeDate = "Today : \(Date().homeFormatted)"
+    private var homeDate = "Today : \(Date().homeFormatted)"
     
     private var currentSelectedBackgroundColor: Color {
-        return app.user.todoLists[detailsIndex].color
+        app.user.todoLists[detailsIndex].color
+    }
+    
+    private var todoLists: [TodoList] {
+        app.user.todoLists
     }
     
     var body: some View {
         VStack(alignment: .leading) {
-            CustomNavigationBarView(color: app.user.todoLists[detailsIndex].color)
+            CustomNavigationBarView(color: todoLists[detailsIndex].color)
                 .animation(.easeInOut)
             
-            MainHeaderView(userName: "Renan", numberOfTasks: 3)
+            MainHeaderView(user: app.user, todoLists: $app.user.todoLists)
                 .padding(.leading, 52)
                 .padding(.top, 32)
+                .onTapGesture(perform: didTapHeaderView)
             
             Spacer()
 
@@ -47,35 +54,34 @@ struct MainView: View {
 
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 18) {
-                    ForEach(0..<app.user.todoLists.count) { index in
+                    ForEach(0..<todoLists.count) { index in
                         Button(action: { self.showDetails(index: index) }) {
-                            MainCardView(todoList: self.app.user.todoLists[index])
+                            MainCardView(todoList: self.todoLists[index])
                                 .frame(width: 278, height: 360)
                         }
+                        .sheet(isPresented: self.$detailsIsPresented, content: { TodoDetailsView(todoList: self.todoLists[self.detailsIndex]) })
                         .buttonStyle(PlainButtonStyle())
                     }
-                    
-                    // 😢😢😢
-//                    ForEach(todoLists) { list in
-//                        Button(action: {
-//                            self.detailsUUID = list.id
-//                            self.detailsIsPresented.toggle()
-//                        }) {
-//                            MainCardView(todoList: list)
-//                                .frame(width: 278, height: 360)
-//                        }
-//                        .buttonStyle(PlainButtonStyle())
-//                    }
-                    
                 }
                 .padding(.horizontal, 52)
             }
             
             Spacer()
         }
-        .sheet(isPresented: $detailsIsPresented, content: { TodoDetailsView(todoList: self.app.user.todoLists[self.detailsIndex]) })
+        .onAppear(perform: onAppear)
+        .sheet(isPresented: $editViewIsPresented, content: { EditUserView(user: self.$app.user, newUser: true) })
         .background(currentSelectedBackgroundColor.edgesIgnoringSafeArea(.all))
         .animation(.easeInOut)
+    }
+    
+    private func onAppear() {
+        if app.firstTime {
+            editViewIsPresented.toggle()
+        }
+    }
+    
+    private func didTapHeaderView() {
+        editViewIsPresented.toggle()
     }
     
     private func showDetails(index: Int) {
@@ -86,6 +92,11 @@ struct MainView: View {
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView().environmentObject(User.mock)
+        Group {
+            MainView().environmentObject(App.mock)
+            
+            MainView().environmentObject(App.mock)
+                .colorScheme(.dark)
+        }
     }
 }

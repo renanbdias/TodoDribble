@@ -13,7 +13,7 @@ struct NewTaskView: View {
     let todoList: TodoList
     
     @Environment(\.presentationMode) var isPresented
-    @ObservedObject var task = Task(id: UUID(), text: "", done: false, date: Date())
+    @ObservedObject var task = Task(id: UUID().hashValue, text: "", done: false, date: Date())
     
     var body: some View {
         NavigationView {
@@ -24,7 +24,7 @@ struct NewTaskView: View {
                         .foregroundColor(.gray)
                     
                     TextField("Type here", text: $task.text)
-                        .padding(.vertical)
+                        .frame(height: 50)
                 }
                 .padding()
                 

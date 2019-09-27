@@ -10,14 +10,14 @@ import Foundation
 
 final class Task: ObservableObject, Identifiable {
     
-    let id: UUID
+    let id: Int
     
     @Published var text: String
     @Published var done: Bool
     
     var date: Date
     
-    init(id: UUID, text: String, done: Bool, date: Date) {
+    init(id: Int, text: String, done: Bool, date: Date) {
         self.id = id
         self.text = text
         self.done = done
@@ -49,10 +49,10 @@ extension Array where Element == Task {
 #if DEBUG
 extension Task {
     static let mock = [
-        Task(id: UUID(), text: "First Task", done: false, date: Date()),
-        Task(id: UUID(), text: "Second Task", done: true, date: Date()),
-        Task(id: UUID(), text: "Third Task", done: false, date: Calendar.current.date(byAdding: .day, value: 1, to: Date())!),
-        Task(id: UUID(), text: "Third Task", done: true, date: Calendar.current.date(byAdding: .day, value: 1, to: Date())!)
+        Task(id: 0, text: "First Task", done: false, date: Date()),
+        Task(id: 1, text: "Second Task", done: true, date: Date()),
+        Task(id: 2, text: "Third Task", done: false, date: Calendar.current.date(byAdding: .day, value: 1, to: Date())!),
+        Task(id: 3, text: "Third Task", done: true, date: Calendar.current.date(byAdding: .day, value: 1, to: Date())!)
     ]
 }
 #endif
