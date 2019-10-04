@@ -13,7 +13,7 @@ struct NewTaskView: View {
     let todoList: TodoList
     
     @Environment(\.presentationMode) var isPresented
-    @ObservedObject var task = Task(id: UUID().hashValue, text: "", done: false, date: Date())
+    @State private var text: String = ""
     
     var body: some View {
         NavigationView {
@@ -23,7 +23,7 @@ struct NewTaskView: View {
                         .font(.subheadline)
                         .foregroundColor(.gray)
                     
-                    TextField("Type here", text: $task.text)
+                    TextField("Type here", text: $text)
                         .frame(height: 50)
                 }
                 .padding()
@@ -49,8 +49,8 @@ struct NewTaskView: View {
     }
     
     private func save() {
-        if !task.text.isEmpty {
-            todoList.tasks.append(task)
+        if !text.isEmpty {
+            todoList.tasks.append(Task(id: UUID().hashValue, text: text, done: false, date: Date()))
         }
         isPresented.wrappedValue.dismiss()
     }

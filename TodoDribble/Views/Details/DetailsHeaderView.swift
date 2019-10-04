@@ -27,13 +27,6 @@ struct DetailsHeaderView: View {
             
             Text(todoList.title)
                 .font(.largeTitle)
-            
-            HStack {
-                ProgressBarView(progress: $progress)
-                Text(String(format: "%.0f%%", Double(progress)))
-                    .font(.subheadline)
-                    .foregroundColor(.gray)
-            }
         }
     }
 }

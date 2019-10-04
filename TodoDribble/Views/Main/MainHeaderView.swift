@@ -10,13 +10,13 @@ import SwiftUI
 
 struct MainHeaderView: View {
     
-    @ObservedObject var user: User
+    @Binding var user: User
     
-    // MARK: - Must have this because it won't trigger from a user instance. Weird...
-    @Binding var todoLists: [TodoList]
+//    // MARK: - Must have this because it won't trigger from a user instance. Weird...
+//    @Binding var todoLists: [TodoList]
     
     private var generalMessage: String {
-        let remainingTasksCount = todoLists.map { $0.tasks.filter { !$0.done }.count }.reduce(0, +)
+        let remainingTasksCount = user.todoLists.map { $0.tasks.filter { !$0.done }.count }.reduce(0, +)
         if remainingTasksCount <= 4 {
             return "Looks like feel good."
         } else if remainingTasksCount <= 10 {
@@ -39,7 +39,7 @@ struct MainHeaderView: View {
                 .font(.subheadline)
                 .foregroundColor(Color.white.opacity(0.8))
             
-            Text("You have \(todoLists.map { $0.tasks.filter { !$0.done }.count }.reduce(0, +)) tasks to do today.")
+            Text("You have \(user.todoLists.map { $0.tasks.filter { !$0.done }.count }.reduce(0, +)) tasks to do today.")
                 .font(.subheadline)
                 .foregroundColor(Color.white.opacity(0.8))
         }
@@ -48,7 +48,7 @@ struct MainHeaderView: View {
 
 struct MainHeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        MainHeaderView(user: User.mock, todoLists: .constant(TodoList.mock))
+        MainHeaderView(user: .constant(User.mock))
             .background(Color.flatOrange)
             .previewLayout(.fixed(width: 414, height: 248))
     }

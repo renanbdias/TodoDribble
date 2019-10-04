@@ -19,8 +19,11 @@ struct TodoDetailsView: View {
         ZStack(alignment: .bottomTrailing) {
 
             ScrollView {
-                Group {
-                    DetailsHeaderView(todoList: todoList)
+                VStack {
+                    HStack {
+                        DetailsHeaderView(todoList: todoList)
+                        Spacer()
+                    }
                     if todoList.tasks.isEmpty {
                         Text("You are all up to date! 🎉")
                             .font(.headline)
@@ -33,7 +36,6 @@ struct TodoDetailsView: View {
             
             Button(action: {
                 self.newTaskIsPresented.toggle()
-//                self.todoList.tasks.append(Task(id: UUID(), text: "Task number \(self.todoList.tasks.count + 1)", done: false, date: Date()))
             }) {
                 FloatingButtonView(color: todoList.color)
             }

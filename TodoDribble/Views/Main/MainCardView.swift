@@ -22,9 +22,6 @@ struct MainCardView: View {
                     .foregroundColor(todoList.color)
                 
                 Spacer()
-                
-//                Text("TODO")
-//                    .foregroundColor(.black)
             }
             
             Spacer()
@@ -32,11 +29,10 @@ struct MainCardView: View {
             Text("\(todoList.tasks.count) Tasks")
                 .font(.subheadline)
                 .foregroundColor(.gray)
+            
             Text(todoList.title)
                 .foregroundColor(.black)
                 .font(.largeTitle)
-            
-            MainCardProgressView(todoList: todoList)
         }
         .padding()
         .background(Color.white)

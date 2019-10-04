@@ -26,7 +26,7 @@ struct MainView: View {
     
     @State var detailsIndex: Int = 0
     
-    private var homeDate = "Today : \(Date().homeFormatted)"
+    private let homeDate = "Today : \(Date().homeFormatted)"
     
     private var currentSelectedBackgroundColor: Color {
         app.user.todoLists[detailsIndex].color
@@ -37,11 +37,8 @@ struct MainView: View {
     }
     
     var body: some View {
-        VStack(alignment: .leading) {
-            CustomNavigationBarView(color: todoLists[detailsIndex].color)
-                .animation(.easeInOut)
-            
-            MainHeaderView(user: app.user, todoLists: $app.user.todoLists)
+        NavigationBarBuilder(alignment: .leading, color: todoLists[detailsIndex].color) {
+            MainHeaderView(user: $app.user)
                 .padding(.leading, 52)
                 .padding(.top, 32)
                 .onTapGesture(perform: didTapHeaderView)
