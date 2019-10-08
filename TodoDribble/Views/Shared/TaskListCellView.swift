@@ -10,14 +10,18 @@ import SwiftUI
 
 struct TaskListCellView: View {
     
+    @EnvironmentObject var app: App
+    
     @ObservedObject var task: Task
+    
+    var showLineDivider = true
     
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
                 Image(systemName: task.done ? "checkmark.square.fill" : "square")
                     .foregroundColor(.gray)
-                    .onTapGesture { self.task.done.toggle() }
+                    .onTapGesture(perform: toggleTaskDone)
                 
                 Text(task.text)
                 
@@ -26,14 +30,28 @@ struct TaskListCellView: View {
                 if task.done {
                     Image(systemName: "trash")
                         .animation(.easeInOut)
-                        .onTapGesture { /* self.store.delete(taskId: task.id) */ }
+                        .onTapGesture(perform: delete)
                 }
             }
-            Rectangle()
-                .frame(height: 0.4)
-                .foregroundColor(.gray)
-                .padding(.leading, 25)
+            
+            if showLineDivider {
+                Rectangle()
+                    .frame(height: 0.4)
+                    .foregroundColor(.gray)
+                    .padding(.leading, 25)
+            }
         }
+    }
+    
+    private func toggleTaskDone() {
+        app.mark(task: task, doneAs: !task.done)
+        task.done.toggle()
+        // MAKR: - Perhaps we should be doing this kinda of thing on App... If we do it there we can do something like App { todoList.tasks.delete(where { $0.id == task.id }) } or something like App { task.done.toggle() }
+        // MARK: - Actions should not be handled on the view, only on it's ViewModel.
+    }
+    
+    private func delete() {
+        app.delete(task: task)
     }
 }
 

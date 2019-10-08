@@ -10,6 +10,8 @@ import SwiftUI
 
 struct TodoDetailsView: View {
     
+    @EnvironmentObject var app: App
+    
     @Environment(\.presentationMode) var isPresented
     @State var newTaskIsPresented = false
     
@@ -27,6 +29,7 @@ struct TodoDetailsView: View {
                     if todoList.tasks.isEmpty {
                         Text("You are all up to date! 🎉")
                             .font(.headline)
+                            .padding(.vertical)
                     } else {
                         TaskListView(taskList: $todoList.tasks)
                     }
@@ -45,7 +48,7 @@ struct TodoDetailsView: View {
                 .onTapGesture(perform: dismiss)
                 .position(x: UIScreen.main.bounds.width - 24, y: 40)
         }
-        .sheet(isPresented: $newTaskIsPresented, content: { NewTaskView(todoList: self.todoList) })
+        .sheet(isPresented: $newTaskIsPresented, content: { NewTaskView(todoList: self.todoList).environmentObject(self.app) })
     }
     
     private func dismiss() {

@@ -25,7 +25,7 @@ struct SelectUserAvaterView: View {
                 HStack(spacing: 20) {
                     ForEach(firstRow, id: \.self) { avatarName in
                         UserAvatarView(avatarName: avatarName)
-                            .overlay(Circle().stroke(Color.white, lineWidth: avatarName == self.userAvatarName ? 1 : 0))
+                            .overlay(Circle().stroke(Color.white, lineWidth: avatarName == self.userAvatarName ? 2 : 0))
                             .onTapGesture(perform: { self.didSelect(avatarName: avatarName) })
                     }
                 }
@@ -34,7 +34,7 @@ struct SelectUserAvaterView: View {
                 HStack(spacing: 20) {
                     ForEach(secondRow, id: \.self) { avatarName in
                         UserAvatarView(avatarName: avatarName)
-                            .overlay(Circle().stroke(Color.white, lineWidth: avatarName == self.userAvatarName ? 1 : 0))
+                            .overlay(Circle().stroke(Color.white, lineWidth: avatarName == self.userAvatarName ? 2 : 0))
                             .onTapGesture(perform: { self.didSelect(avatarName: avatarName) })
                     }
                 }

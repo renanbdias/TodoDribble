@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E01637754A6F37C3FDBBBE6 /* Pods_TodoDribble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44073030E4966405B41930B1 /* Pods_TodoDribble.framework */; };
 		842D6BD02336A03500621AC8 /* DetailsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842D6BCF2336A03500621AC8 /* DetailsHeaderView.swift */; };
 		842D6BD32336A25F00621AC8 /* TodoIconModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842D6BD22336A25F00621AC8 /* TodoIconModifier.swift */; };
 		842D6BD52336A90500621AC8 /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842D6BD42336A90500621AC8 /* TaskListView.swift */; };
@@ -15,6 +16,7 @@
 		84517B2F233C1AB20004623F /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84517B2E233C1AB20004623F /* App.swift */; };
 		84517B33233C45700004623F /* CloseButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84517B32233C45700004623F /* CloseButtonView.swift */; };
 		8452B62323466494009D377B /* NavigationBarBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8452B62223466494009D377B /* NavigationBarBuilder.swift */; };
+		845754E92347BFCB006783DC /* TaskDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845754E82347BFCB006783DC /* TaskDB.swift */; };
 		845EC989233465A700333176 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845EC988233465A700333176 /* AppDelegate.swift */; };
 		845EC98B233465A700333176 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845EC98A233465A700333176 /* SceneDelegate.swift */; };
 		845EC98E233465A700333176 /* TodoDribble.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 845EC98C233465A700333176 /* TodoDribble.xcdatamodeld */; };
@@ -22,6 +24,11 @@
 		845EC995233465AB00333176 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 845EC994233465AB00333176 /* Preview Assets.xcassets */; };
 		845EC998233465AB00333176 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 845EC996233465AB00333176 /* LaunchScreen.storyboard */; };
 		845EC9A02334670300333176 /* MainCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845EC99F2334670300333176 /* MainCardView.swift */; };
+		8495B8F4234B14200018EABF /* AllTasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8495B8F3234B14200018EABF /* AllTasksView.swift */; };
+		8495B8F7234BAE780018EABF /* UserDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8495B8F6234BAE780018EABF /* UserDB.swift */; };
+		8495B8F9234BAE910018EABF /* RealmBaseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8495B8F8234BAE910018EABF /* RealmBaseObject.swift */; };
+		8495B8FB234BAEAE0018EABF /* TodoListDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8495B8FA234BAEAE0018EABF /* TodoListDB.swift */; };
+		8495B8FF234BCE3F0018EABF /* TasksByDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8495B8FE234BCE3F0018EABF /* TasksByDate.swift */; };
 		84D79A0D2335D8E10075BC29 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D79A0C2335D8E10075BC29 /* Task.swift */; };
 		84D79A0F2335D9530075BC29 /* TaskListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D79A0E2335D9530075BC29 /* TaskListCellView.swift */; };
 		84D79A112335DE6E0075BC29 /* MainHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D79A102335DE6E0075BC29 /* MainHeaderView.swift */; };
@@ -36,6 +43,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		44073030E4966405B41930B1 /* Pods_TodoDribble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodoDribble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		842D6BCF2336A03500621AC8 /* DetailsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsHeaderView.swift; sourceTree = "<group>"; };
 		842D6BD22336A25F00621AC8 /* TodoIconModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoIconModifier.swift; sourceTree = "<group>"; };
 		842D6BD42336A90500621AC8 /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
@@ -44,6 +52,7 @@
 		84517B2E233C1AB20004623F /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		84517B32233C45700004623F /* CloseButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButtonView.swift; sourceTree = "<group>"; };
 		8452B62223466494009D377B /* NavigationBarBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarBuilder.swift; sourceTree = "<group>"; };
+		845754E82347BFCB006783DC /* TaskDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDB.swift; sourceTree = "<group>"; };
 		845EC985233465A700333176 /* TodoDribble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodoDribble.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		845EC988233465A700333176 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		845EC98A233465A700333176 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +62,11 @@
 		845EC997233465AB00333176 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		845EC999233465AB00333176 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		845EC99F2334670300333176 /* MainCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCardView.swift; sourceTree = "<group>"; };
+		8495B8F3234B14200018EABF /* AllTasksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTasksView.swift; sourceTree = "<group>"; };
+		8495B8F6234BAE780018EABF /* UserDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDB.swift; sourceTree = "<group>"; };
+		8495B8F8234BAE910018EABF /* RealmBaseObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmBaseObject.swift; sourceTree = "<group>"; };
+		8495B8FA234BAEAE0018EABF /* TodoListDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListDB.swift; sourceTree = "<group>"; };
+		8495B8FE234BCE3F0018EABF /* TasksByDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksByDate.swift; sourceTree = "<group>"; };
 		84D79A0C2335D8E10075BC29 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		84D79A0E2335D9530075BC29 /* TaskListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListCellView.swift; sourceTree = "<group>"; };
 		84D79A102335DE6E0075BC29 /* MainHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHeaderView.swift; sourceTree = "<group>"; };
@@ -64,6 +78,8 @@
 		84F41A53233C733A0027514C /* EditUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserView.swift; sourceTree = "<group>"; };
 		84F41A55233C73710027514C /* UserAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAvatarView.swift; sourceTree = "<group>"; };
 		84F41A57233D3EB70027514C /* SelectUserAvaterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectUserAvaterView.swift; sourceTree = "<group>"; };
+		9BF941E96CD324C5BC916C24 /* Pods-TodoDribble.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoDribble.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TodoDribble/Pods-TodoDribble.debug.xcconfig"; sourceTree = "<group>"; };
+		DD2A0ECF123998C37C31FBD2 /* Pods-TodoDribble.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoDribble.release.xcconfig"; path = "Pods/Target Support Files/Pods-TodoDribble/Pods-TodoDribble.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,15 +87,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E01637754A6F37C3FDBBBE6 /* Pods_TodoDribble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6A92F8035454711A2F7509EF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9BF941E96CD324C5BC916C24 /* Pods-TodoDribble.debug.xcconfig */,
+				DD2A0ECF123998C37C31FBD2 /* Pods-TodoDribble.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		842D6BC8233698B800621AC8 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				84D79A0E2335D9530075BC29 /* TaskListCellView.swift */,
 				84D9D316233836B0006409DB /* FloatingButtonView.swift */,
 				84517B32233C45700004623F /* CloseButtonView.swift */,
 				84F41A55233C73710027514C /* UserAvatarView.swift */,
@@ -102,7 +129,6 @@
 			isa = PBXGroup;
 			children = (
 				842D6BD62336BCF400621AC8 /* TodoDetailsView.swift */,
-				84D79A0E2335D9530075BC29 /* TaskListCellView.swift */,
 				842D6BCF2336A03500621AC8 /* DetailsHeaderView.swift */,
 				842D6BD42336A90500621AC8 /* TaskListView.swift */,
 			);
@@ -120,6 +146,7 @@
 		844EBE972335C5D400A4F7F0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8495B8F2234B13EC0018EABF /* AllTasks */,
 				84F41A52233C73280027514C /* EditUser */,
 				842D6BD12336A23E00621AC8 /* Modifiers */,
 				842D6BCD23369F4300621AC8 /* Main */,
@@ -133,10 +160,12 @@
 		844EBE9C2335D4FE00A4F7F0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8495B8F5234BAE6E0018EABF /* DB */,
 				84517B2E233C1AB20004623F /* App.swift */,
 				84F41A4E233C688A0027514C /* User.swift */,
 				844EBE9D2335D50A00A4F7F0 /* TodoList.swift */,
 				84D79A0C2335D8E10075BC29 /* Task.swift */,
+				8495B8FE234BCE3F0018EABF /* TasksByDate.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -146,6 +175,8 @@
 			children = (
 				845EC987233465A700333176 /* TodoDribble */,
 				845EC986233465A700333176 /* Products */,
+				6A92F8035454711A2F7509EF /* Pods */,
+				F821505AFD43A4A8E8EA16DD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -182,6 +213,25 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		8495B8F2234B13EC0018EABF /* AllTasks */ = {
+			isa = PBXGroup;
+			children = (
+				8495B8F3234B14200018EABF /* AllTasksView.swift */,
+			);
+			path = AllTasks;
+			sourceTree = "<group>";
+		};
+		8495B8F5234BAE6E0018EABF /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				8495B8F8234BAE910018EABF /* RealmBaseObject.swift */,
+				845754E82347BFCB006783DC /* TaskDB.swift */,
+				8495B8F6234BAE780018EABF /* UserDB.swift */,
+				8495B8FA234BAEAE0018EABF /* TodoListDB.swift */,
+			);
+			path = DB;
+			sourceTree = "<group>";
+		};
 		84D9D318233840D0006409DB /* NewTask */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,6 +249,14 @@
 			path = EditUser;
 			sourceTree = "<group>";
 		};
+		F821505AFD43A4A8E8EA16DD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				44073030E4966405B41930B1 /* Pods_TodoDribble.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -206,9 +264,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 845EC99C233465AB00333176 /* Build configuration list for PBXNativeTarget "TodoDribble" */;
 			buildPhases = (
+				57079ECE71BBCED41419C681 /* [CP] Check Pods Manifest.lock */,
 				845EC981233465A700333176 /* Sources */,
 				845EC982233465A700333176 /* Frameworks */,
 				845EC983233465A700333176 /* Resources */,
+				AD2F178A827C71179B5CBB10 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -265,6 +325,55 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		57079ECE71BBCED41419C681 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TodoDribble-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AD2F178A827C71179B5CBB10 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-TodoDribble/Pods-TodoDribble-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TodoDribble/Pods-TodoDribble-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		845EC981233465A700333176 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -273,11 +382,16 @@
 				84D9D317233836B0006409DB /* FloatingButtonView.swift in Sources */,
 				84D9D31A23384168006409DB /* NewTaskView.swift in Sources */,
 				84D79A112335DE6E0075BC29 /* MainHeaderView.swift in Sources */,
+				8495B8FB234BAEAE0018EABF /* TodoListDB.swift in Sources */,
+				8495B8F4234B14200018EABF /* AllTasksView.swift in Sources */,
 				84D79A152335E1B90075BC29 /* MainView.swift in Sources */,
+				8495B8F9234BAE910018EABF /* RealmBaseObject.swift in Sources */,
 				84F41A56233C73710027514C /* UserAvatarView.swift in Sources */,
 				8452B62323466494009D377B /* NavigationBarBuilder.swift in Sources */,
 				84D79A132335E1AA0075BC29 /* Colors.swift in Sources */,
+				8495B8F7234BAE780018EABF /* UserDB.swift in Sources */,
 				842D6BD32336A25F00621AC8 /* TodoIconModifier.swift in Sources */,
+				845754E92347BFCB006783DC /* TaskDB.swift in Sources */,
 				842D6BD02336A03500621AC8 /* DetailsHeaderView.swift in Sources */,
 				84517B33233C45700004623F /* CloseButtonView.swift in Sources */,
 				84F41A54233C733A0027514C /* EditUserView.swift in Sources */,
@@ -288,6 +402,7 @@
 				844EBE9E2335D50A00A4F7F0 /* TodoList.swift in Sources */,
 				84517B2F233C1AB20004623F /* App.swift in Sources */,
 				84F41A58233D3EB70027514C /* SelectUserAvaterView.swift in Sources */,
+				8495B8FF234BCE3F0018EABF /* TasksByDate.swift in Sources */,
 				845EC98B233465A700333176 /* SceneDelegate.swift in Sources */,
 				84F41A4F233C688A0027514C /* User.swift in Sources */,
 				845EC98E233465A700333176 /* TodoDribble.xcdatamodeld in Sources */,
@@ -426,6 +541,7 @@
 		};
 		845EC99D233465AB00333176 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9BF941E96CD324C5BC916C24 /* Pods-TodoDribble.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -446,6 +562,7 @@
 		};
 		845EC99E233465AB00333176 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD2A0ECF123998C37C31FBD2 /* Pods-TodoDribble.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

@@ -23,5 +23,12 @@ final class User: ObservableObject {
 
 extension User {
     
+    convenience init(userDB: UserDB) {
+        self.init(name: userDB.name, avatarName: userDB.avatarName, todoLists: userDB.todoLists.compactMap(TodoList.init(todoListDB:)))
+    }
+}
+
+extension User {
+    
     static let mock = User(name: "Renan", avatarName: "avatar0", todoLists: TodoList.mock)
 }

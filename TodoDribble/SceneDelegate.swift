@@ -28,7 +28,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        let contentView = ContentView().environment(\.managedObjectContext, context)
 //        let contentView = MainView(todoLists: TodoList.mock)//.environment(\.managedObjectContext, context)
 //        let contentView = MainView().environmentObject(User.mock)
-        let contentView = MainView().environmentObject(App(user: User(name: "", avatarName: "avatar0", todoLists: initial)))
+        let contentView = MainView().environmentObject(App())
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {

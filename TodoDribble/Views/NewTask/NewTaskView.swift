@@ -12,6 +12,8 @@ struct NewTaskView: View {
     
     let todoList: TodoList
     
+    @EnvironmentObject var app: App
+    
     @Environment(\.presentationMode) var isPresented
     @State private var text: String = ""
     
@@ -50,7 +52,9 @@ struct NewTaskView: View {
     
     private func save() {
         if !text.isEmpty {
-            todoList.tasks.append(Task(id: UUID().hashValue, text: text, done: false, date: Date()))
+            let task = Task(id: UUID().hashValue, text: text, done: false, date: Date())
+            app.create(task: task, on: todoList)
+            todoList.tasks.append(task)
         }
         isPresented.wrappedValue.dismiss()
     }

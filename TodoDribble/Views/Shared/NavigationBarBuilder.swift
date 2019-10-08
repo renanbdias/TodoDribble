@@ -12,19 +12,31 @@ struct NavigationBarBuilder<Content: View>: View {
     
     private let alignment: HorizontalAlignment
     private let content: Content
-    private var color: Color
     
-    public init(alignment: HorizontalAlignment, color: Color, @ViewBuilder content: () -> Content) {
+    private let rightButtonAction: (() -> Void)?
+    private let leftButtonAction: (() -> Void)?
+    
+    public init(
+        alignment: HorizontalAlignment,
+        rightButtonAction: (() -> Void)? = nil,
+        leftButtonAction: (() -> Void)? = nil,
+        @ViewBuilder content: () -> Content) {
+        
         self.alignment = alignment
-        self.color = color
+        self.rightButtonAction = rightButtonAction
+        self.leftButtonAction = leftButtonAction
         self.content = content()
     }
     
     var body: some View {
         VStack(alignment: alignment) {
             HStack {
-                Image(systemName: "list.dash")
-                    .foregroundColor(.white)
+                
+                Button(action: leftButtonAction ?? { /* Do nothing */ }) {
+                    Image(systemName: "list.dash")
+                        .foregroundColor(.white)
+                }
+                .buttonStyle(PlainButtonStyle())
 
                 Spacer()
 
@@ -35,11 +47,13 @@ struct NavigationBarBuilder<Content: View>: View {
 
                 Spacer()
 
-                Image(systemName: "magnifyingglass")
-                    .foregroundColor(.white)
+                Button(action: rightButtonAction ?? { /* Do nothing */ }) {
+                    Image(systemName: "magnifyingglass")
+                        .foregroundColor(.white)
+                }
+                .buttonStyle(PlainButtonStyle())
             }
             .padding()
-            .background(color)
             
             content
         }
@@ -49,17 +63,20 @@ struct NavigationBarBuilder<Content: View>: View {
 struct NavigationBarBuilder_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            NavigationBarBuilder(alignment: .leading, color: .flatOrange) {
+            NavigationBarBuilder(alignment: .leading) {
                 EmptyView()
             }
+            .background(Color.flatOrange)
             
-            NavigationBarBuilder(alignment: .leading, color: .flatBlue) {
+            NavigationBarBuilder(alignment: .leading) {
                 EmptyView()
             }
+            .background(Color.flatBlue)
             
-            NavigationBarBuilder(alignment: .leading, color: .flatGreen) {
+            NavigationBarBuilder(alignment: .leading) {
                 EmptyView()
             }
+            .background(Color.flatGreen)
         }
         .previewLayout(.fixed(width: 414, height: 128))
     }

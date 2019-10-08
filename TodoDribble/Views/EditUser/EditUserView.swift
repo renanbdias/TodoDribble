@@ -12,6 +12,8 @@ struct EditUserView: View {
     
     @Environment(\.presentationMode) var isPresented
     
+    @EnvironmentObject var app: App
+    
     @Binding var user: User
     
     var newUser: Bool
@@ -46,10 +48,15 @@ struct EditUserView: View {
                 .foregroundColor(self.color)
             )
         }
+        .onDisappear(perform: onDisappear)
     }
     
     private func didSelect(avatarName: String) {
         user.avatarName = avatarName
+    }
+    
+    private func onDisappear() {
+        app.save(user: user)
     }
 }
 

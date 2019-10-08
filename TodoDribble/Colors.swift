@@ -16,3 +16,11 @@ extension Color {
     
     static let flatGreen = Color("flatGreen")
 }
+
+extension Color {
+    
+    // MARK: - Workarround to get the color's name.
+    public var name: String {
+        description.split(separator: " ")[1].replacingOccurrences(of: ",", with: "").replacingOccurrences(of: "\"", with: "")
+    }
+}

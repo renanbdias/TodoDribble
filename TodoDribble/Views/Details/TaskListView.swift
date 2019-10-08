@@ -10,6 +10,8 @@ import SwiftUI
 
 struct TaskListView: View {
     
+    @EnvironmentObject var app: App
+    
     @Binding var taskList: [Task]
     
     var body: some View {
@@ -21,7 +23,7 @@ struct TaskListView: View {
             ForEach(taskList.todatAndPreviousDates) { task in
                 TaskListCellView(task: task)
                     .contextMenu {
-                        Button(action: { self.taskList.removeAll(where: { $0.id == task.id }) }) {
+                        Button(action: { self.delete(task: task) }) {
                             VStack {
                                 Image(systemName: "trash")
                                 Text("Delete")
@@ -37,7 +39,7 @@ struct TaskListView: View {
             ForEach(taskList.laterDates) { task in
                 TaskListCellView(task: task)
                     .contextMenu {
-                        Button(action: { self.taskList.removeAll(where: { $0.id == task.id }) }) {
+                        Button(action: { self.delete(task: task) }) {
                             VStack {
                                 Image(systemName: "trash")
                                 Text("Delete")
@@ -46,6 +48,10 @@ struct TaskListView: View {
                     }
             }
         }
+    }
+    
+    private func delete(task: Task) {
+        app.delete(task: task)
     }
 }
 

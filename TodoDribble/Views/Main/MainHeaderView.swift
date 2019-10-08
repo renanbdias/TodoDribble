@@ -18,11 +18,11 @@ struct MainHeaderView: View {
     private var generalMessage: String {
         let remainingTasksCount = user.todoLists.map { $0.tasks.filter { !$0.done }.count }.reduce(0, +)
         if remainingTasksCount <= 4 {
-            return "Looks like feel good."
+            return "Looks like feel good. 😅"
         } else if remainingTasksCount <= 10 {
-            return "Things are crowding up!"
+            return "Things are crowding up! 😰"
         } else {
-            return "Get your stuff together!"
+            return "Get your stuff together! 😬"
         }
     }
     

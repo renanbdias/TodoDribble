@@ -25,7 +25,15 @@ final class Task: ObservableObject, Identifiable {
     }
 }
 
+extension Task {
+    
+    convenience init(taskDB: TaskDB) {
+        self.init(id: taskDB.id, text: taskDB.text, done: taskDB.done, date: taskDB.date)
+    }
+}
+
 extension Array where Element == Task {
+    
     var laterDates: [Task] {
         filter {
             let dateCompare = $0.date.compare(Date())
@@ -46,8 +54,25 @@ extension Array where Element == Task {
     }
 }
 
-#if DEBUG
+extension Array where Element == Task {
+    
+    var asTasksByDate: [TasksByDate] {
+        var allTasks: [TasksByDate] = []
+        for task in self {
+            if let tasksByDate = allTasks.first(where: { Calendar.current.compare($0.date, to: task.date, toGranularity: .day) == .orderedSame }) {
+                tasksByDate.tasks.append(task)
+            } else {
+                let tasksByDate = TasksByDate(id: UUID(), date: task.date, tasks: [task])
+                allTasks.append(tasksByDate)
+            }
+        }
+        
+        return allTasks
+    }
+}
+
 extension Task {
+    
     static let mock = [
         Task(id: 0, text: "First Task", done: false, date: Date()),
         Task(id: 1, text: "Second Task", done: true, date: Date()),
@@ -55,4 +80,3 @@ extension Task {
         Task(id: 3, text: "Third Task", done: true, date: Calendar.current.date(byAdding: .day, value: 1, to: Date())!)
     ]
 }
-#endif

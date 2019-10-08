@@ -26,6 +26,9 @@ struct MainView: View {
     
     @State var detailsIndex: Int = 0
     
+    @State var allTasksIsPresented = false
+    @State var searchIsPresented = false
+    
     private let homeDate = "Today : \(Date().homeFormatted)"
     
     private var currentSelectedBackgroundColor: Color {
@@ -37,11 +40,12 @@ struct MainView: View {
     }
     
     var body: some View {
-        NavigationBarBuilder(alignment: .leading, color: todoLists[detailsIndex].color) {
+        NavigationBarBuilder(alignment: .leading, rightButtonAction: { self.searchIsPresented.toggle() }, leftButtonAction: { self.allTasksIsPresented.toggle() }) {
             MainHeaderView(user: $app.user)
                 .padding(.leading, 52)
                 .padding(.top, 32)
                 .onTapGesture(perform: didTapHeaderView)
+                .sheet(isPresented: $editViewIsPresented, content: { EditUserView(user: self.$app.user, newUser: true).environmentObject(self.app) })
             
             Spacer()
 
@@ -56,17 +60,20 @@ struct MainView: View {
                             MainCardView(todoList: self.todoLists[index])
                                 .frame(width: 278, height: 360)
                         }
-                        .sheet(isPresented: self.$detailsIsPresented, content: { TodoDetailsView(todoList: self.todoLists[self.detailsIndex]) })
+                        .sheet(isPresented: self.$detailsIsPresented, content: { TodoDetailsView(todoList: self.todoLists[self.detailsIndex]).environmentObject(self.app) })
                         .buttonStyle(PlainButtonStyle())
                     }
                 }
                 .padding(.horizontal, 52)
             }
+//            .sheet(isPresented: $allTasksIsPresented, content: {
+//                AllTasksView(todoLists: self.$app.user.todoLists)
+//                    .environmentObject(self.app)
+//            })
             
             Spacer()
         }
         .onAppear(perform: onAppear)
-        .sheet(isPresented: $editViewIsPresented, content: { EditUserView(user: self.$app.user, newUser: true) })
         .background(currentSelectedBackgroundColor.edgesIgnoringSafeArea(.all))
         .animation(.easeInOut)
     }

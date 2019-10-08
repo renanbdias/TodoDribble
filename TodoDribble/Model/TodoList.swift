@@ -27,6 +27,13 @@ final class TodoList: ObservableObject, Identifiable {
     }
 }
 
+extension TodoList {
+    
+    convenience init(todoListDB: TodoListDB) {
+        self.init(id: todoListDB.id, title: todoListDB.title, color: Color(todoListDB.color), iconName: todoListDB.iconName, tasks: todoListDB.tasks.compactMap(Task.init(taskDB:)))
+    }
+}
+
 // MARK: - SwiftUI
 extension TodoList {
     
@@ -35,7 +42,6 @@ extension TodoList {
     }
 }
 
-#if DEBUG
 extension TodoList {
     static let mock = [
         TodoList(id: 0, title: "Personal", color: .flatOrange, iconName: "person.fill", tasks: Task.mock),
@@ -43,4 +49,3 @@ extension TodoList {
         TodoList(id: 2, title: "Home", color: .flatGreen, iconName: "house.fill", tasks: Task.mock)
     ]
 }
-#endif
