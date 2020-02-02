@@ -12,19 +12,13 @@ import RealmSwift
 final class App: ObservableObject {
     
     @Published var user: User
+    @Published var todoLists: [TodoList]
     
     let firstTime: Bool
     
-    private var userDB: UserDB? {
-        try? Realm().objects(UserDB.self).first
-    }
-    
-    private var realm: Realm? {
-        try? Realm()
-    }
-    
-    init(user: User) {
+    init(user: User, todoLists: [TodoList]) {
         self.user = user
+        self.todoLists = todoLists
         self.firstTime = true
     }
     
@@ -35,14 +29,15 @@ final class App: ObservableObject {
         
         if let userDB = userDB {
             self.user = User(userDB: userDB)
+            self.todoLists = realm.objects(TodoListDB.self).map(TodoList.init(todoListDB:))
             self.firstTime = false
         } else {
-            let newUser = User(name: "", avatarName: "avatar0", todoLists: initial)
+            let newUser = User(name: "", avatarName: "avatar0")
             let newUserDB = UserDB()
             newUserDB.name = newUser.name
             newUserDB.avatarName = newUser.avatarName
             
-            let todoListsDB: [TodoListDB] = newUser.todoLists.map {
+            let todoListsDB: [TodoListDB] = TodoList.seed.map {
                 let todoListDB = TodoListDB()
                 todoListDB.id = $0.id
                 todoListDB.title = $0.title
@@ -51,16 +46,33 @@ final class App: ObservableObject {
                 return todoListDB
             }
             
-            newUserDB.todoLists.append(objectsIn: todoListsDB)
+//            newUserDB.todoLists.append(objectsIn: todoListsDB)
             
             try! realm.write {
-                realm.add(newUserDB)
+                todoListsDB.forEach { realm.add($0) }
+//                realm.add(newUserDB)
             }
             
             self.user = newUser
+            self.todoLists = TodoList.seed
             self.firstTime = true
         }
     }
+}
+
+extension App {
+    
+    private var userDB: UserDB? {
+        try? Realm().objects(UserDB.self).first
+    }
+    
+    private var realm: Realm? {
+        try? Realm()
+    }
+}
+
+// MARK: - Actions
+extension App {
     
     func save(user: User) {
         guard let realm = self.realm,
@@ -114,9 +126,3 @@ extension App {
     
     static let mock = App(user: User(name: "Renan", avatarName: "avatar0", todoLists: initial))
 }
-
-let initial = [
-    TodoList(id: 0, title: "Personal", color: .flatOrange, iconName: "person.fill", tasks: []),
-    TodoList(id: 1, title: "Work", color: .flatBlue, iconName: "briefcase.fill", tasks: []),
-    TodoList(id: 2, title: "Home", color: .flatGreen, iconName: "house.fill", tasks: [])
-]

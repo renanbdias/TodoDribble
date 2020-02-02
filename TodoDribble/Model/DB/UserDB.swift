@@ -12,6 +12,4 @@ final class UserDB: RealmBaseObject {
     
     @objc dynamic var name = ""
     @objc dynamic var avatarName = ""
-    
-    let todoLists = List<TodoListDB>()
 }

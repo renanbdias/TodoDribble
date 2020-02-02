@@ -22,6 +22,7 @@ final class TasksByDate: Identifiable {
 }
 
 extension TasksByDate {
+    
     static let mock = [
         TasksByDate(id: UUID(), date: Date(), tasks: [Task.mock[0], Task.mock[1]]),
         TasksByDate(id: UUID(), date: Calendar.current.date(byAdding: .day, value: 1, to: Date())!, tasks: [Task.mock[2], Task.mock[3]])

@@ -43,9 +43,19 @@ extension TodoList {
 }
 
 extension TodoList {
+    
     static let mock = [
         TodoList(id: 0, title: "Personal", color: .flatOrange, iconName: "person.fill", tasks: Task.mock),
         TodoList(id: 1, title: "Work", color: .flatBlue, iconName: "briefcase.fill", tasks: Task.mock),
         TodoList(id: 2, title: "Home", color: .flatGreen, iconName: "house.fill", tasks: Task.mock)
+    ]
+}
+
+extension TodoList {
+    
+    static let seed = [
+        TodoList(id: 0, title: "Personal", color: .flatOrange, iconName: "person.fill", tasks: []),
+        TodoList(id: 1, title: "Work", color: .flatBlue, iconName: "briefcase.fill", tasks: []),
+        TodoList(id: 2, title: "Home", color: .flatGreen, iconName: "house.fill", tasks: [])
     ]
 }

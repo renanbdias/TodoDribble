@@ -12,23 +12,21 @@ final class User: ObservableObject {
     
     @Published var name: String
     @Published var avatarName: String
-    @Published var todoLists: [TodoList]
     
-    init(name: String, avatarName: String, todoLists: [TodoList]) {
+    init(name: String, avatarName: String) {
         self.name = name
         self.avatarName = avatarName
-        self.todoLists = todoLists
     }
 }
 
 extension User {
     
     convenience init(userDB: UserDB) {
-        self.init(name: userDB.name, avatarName: userDB.avatarName, todoLists: userDB.todoLists.compactMap(TodoList.init(todoListDB:)))
+        self.init(name: userDB.name, avatarName: userDB.avatarName)
     }
 }
 
 extension User {
     
-    static let mock = User(name: "Renan", avatarName: "avatar0", todoLists: TodoList.mock)
+    static let mock = User(name: "Renan", avatarName: "avatar0")
 }
